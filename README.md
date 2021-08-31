@@ -2,7 +2,7 @@
  
 ### 📝 It is precious to keep records of studying
 - My code written before is sort of messy, but it proves I am doing better than yesterday.
-- I write down my recording in either [✨Notion✨](https://www.notion.so/Today-I-Learned-f0f446ed48514c4abe709b1d9278dccb) or this repository. (sometimes both though)
+- I write down my recording in [✨Notion✨](https://jinhyang.notion.site/2fa22566e5d8448baf9ff8fbd5f5359e?v=3c41946a2a3a4a8c963af9e05373ba11), so this repository is for code.
 - Inspired by [jbranchaud](https://github.com/jbranchaud/til)
   
    
