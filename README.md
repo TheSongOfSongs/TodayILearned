@@ -21,6 +21,14 @@
    
 ### UIKit
    <details>
+    <summary>AppDelegateSceneDelegate</summary>
+    <blockquote>
+     <div>
+     - related video : https://developer.apple.com/videos/play/wwdc2019/258/
+     </div>
+    </blockquote>
+    </details>
+   <details>
     <summary>VariationFluidPhoto</summary>
     <blockquote>
      <div>
@@ -29,4 +37,3 @@
      </div>
     </blockquote>
     </details>
-
