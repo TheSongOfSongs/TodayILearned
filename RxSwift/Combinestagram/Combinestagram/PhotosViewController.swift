@@ -45,6 +45,7 @@ class PhotosViewController: UICollectionViewController {
   // MARK: private properties
   private lazy var photos = PhotosViewController.loadPhotos()
   private lazy var imageManager = PHCachingImageManager()
+  private let bag = DisposeBag()
   
   // public으로 선언할 경우, 다른 VC에서도 onNext(_)할 위험이 있으므로 private으로 선언
   private let selectedPhotosSubject = PublishSubject<UIImage>()
@@ -65,12 +66,43 @@ class PhotosViewController: UICollectionViewController {
   // MARK: View Controller
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    let authorized = PHPhotoLibrary.authorized.share()
+    authorized
+      .skipWhile({ !$0 }) // ignore false elements
+      .take(1) // 한 번 값을 받고 그 이후부터는 무시
+      .subscribe(onNext: { [weak self] _ in
+        self?.photos = PhotosViewController.loadPhotos()
+        DispatchQueue.main.async {
+          self?.collectionView.reloadData()
+        }
+      })
+      .disposed(by: bag)
+    
+    authorized
+      .takeLast(1)
+      .filter { !$0 }
+      .subscribe(onNext: { [weak self] _ in
+        guard let errorMessage = self?.errorMessage else { return }
+        DispatchQueue.main.async(execute: errorMessage)
+      })
+      .disposed(by: bag)
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     selectedPhotosSubject.onCompleted()
+  }
+  
+  private func errorMessage() {
+    alert("No access to Camera Roll",
+          description: "You can grant access to Combinestagram from the Settings app")
+      .asObservable()
+      .take(.seconds(5), scheduler: MainScheduler.instance)
+      .subscribe(onCompleted: { [weak self] in
+        self?.dismiss(animated: true, completion: nil)
+        _ = self?.navigationController?.popViewController(animated: true)
+      })
+      .disposed(by: bag)
   }
   
 

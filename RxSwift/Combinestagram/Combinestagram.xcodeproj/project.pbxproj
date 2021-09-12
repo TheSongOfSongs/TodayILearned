@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D2BF38C26DFC35C00E61DAE /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2BF38B26DFC35C00E61DAE /* UIViewController+Rx.swift */; };
+		4D2BF40F26EDCE7200E61DAE /* PHPhotoLibrary+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2BF40E26EDCE7200E61DAE /* PHPhotoLibrary+Rx.swift */; };
 		5508DBB21DFFB562849387D4 /* Pods_Combinestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50446757513BF821D5F28146 /* Pods_Combinestagram.framework */; };
 		9CDD7B041DE5AABE0058B2D5 /* UIImage+Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD7B031DE5AABE0058B2D5 /* UIImage+Collage.swift */; };
 		9CDD7B061DE5BC660058B2D5 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD7B051DE5BC660058B2D5 /* PhotosViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		4D2BF38B26DFC35C00E61DAE /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		4D2BF40E26EDCE7200E61DAE /* PHPhotoLibrary+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Rx.swift"; sourceTree = "<group>"; };
 		50446757513BF821D5F28146 /* Pods_Combinestagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Combinestagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CDD7B031DE5AABE0058B2D5 /* UIImage+Collage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIImage+Collage.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9CDD7B051DE5BC660058B2D5 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PhotosViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -87,6 +89,7 @@
 				9CE7E5DC1DE5A40900C8BA5A /* AppDelegate.swift */,
 				9CDD7B0B1DE6E3D30058B2D5 /* PhotoWriter.swift */,
 				4D2BF38B26DFC35C00E61DAE /* UIViewController+Rx.swift */,
+				4D2BF40E26EDCE7200E61DAE /* PHPhotoLibrary+Rx.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				9CDD7B0C1DE6E3D30058B2D5 /* PhotoWriter.swift in Sources */,
 				9CE7E5DF1DE5A40A00C8BA5A /* MainViewController.swift in Sources */,
 				9CE7E5DD1DE5A40A00C8BA5A /* AppDelegate.swift in Sources */,
+				4D2BF40F26EDCE7200E61DAE /* PHPhotoLibrary+Rx.swift in Sources */,
 				4D2BF38C26DFC35C00E61DAE /* UIViewController+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
