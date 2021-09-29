@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         style()
+
         ApiController.shared.currentWeather(for: "RxSwift")
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { data in
@@ -57,20 +58,26 @@ class ViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        searchCityName.rx.text.orEmpty
+        let search = searchCityName.rx.text.orEmpty
             .filter({ !$0.isEmpty })
-            .flatMap { text in
+            .flatMapLatest { text in // flatMapLatest를 통해, 새로운 네트워크 통신이 시작되면 이전의 요청은 취소됨
                 ApiController.shared
                     .currentWeather(for: text)
                     .catchErrorJustReturn(.empty)
             }
+            .share(replay: 1) // single-use data를 multi-use Observable로 바꿔 reusable한 stream으로 사용가능
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { data in
-                self.tempLabel.text = "\(data.temperature)° C"
-                self.iconLabel.text = data.icon
-                self.humidityLabel.text = "\(data.humidity)%"
-                self.cityNameLabel.text = data.cityName
-            })
+
+        search.map { "\($0.temperature)° C" }
+            .bind(to: tempLabel.rx.text)
+            .disposed(by: bag)
+        
+        search.map(\.icon)
+            .bind(to: iconLabel.rx.text)
+            .disposed(by: bag)
+        
+        search.map(\.cityName)
+            .bind(to: cityNameLabel.rx.text)
             .disposed(by: bag)
     }
     
