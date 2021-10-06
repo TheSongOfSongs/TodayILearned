@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4D904667270DD74500DD41AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D904666270DD74500DD41AE /* AppDelegate.swift */; };
 		4D904669270DD74500DD41AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D904668270DD74500DD41AE /* SceneDelegate.swift */; };
-		4D90466B270DD74500DD41AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D90466A270DD74500DD41AE /* ViewController.swift */; };
 		4D90466E270DD74500DD41AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D90466C270DD74500DD41AE /* Main.storyboard */; };
 		4D904671270DD74500DD41AE /* RxMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D90466F270DD74500DD41AE /* RxMemo.xcdatamodeld */; };
 		4D904673270DD74900DD41AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D904672270DD74900DD41AE /* Assets.xcassets */; };
@@ -22,7 +21,6 @@
 		4D904663270DD74500DD41AE /* RxMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D904666270DD74500DD41AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D904668270DD74500DD41AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4D90466A270DD74500DD41AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4D90466D270DD74500DD41AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D904670270DD74500DD41AE /* RxMemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RxMemo.xcdatamodel; sourceTree = "<group>"; };
 		4D904672270DD74900DD41AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,7 +48,6 @@
 				2A9EDB3861B9B9DC225C6D86 /* Pods-RxMemo.debug.xcconfig */,
 				9F02F1976D5A0DC910A6DAA0 /* Pods-RxMemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -75,16 +72,55 @@
 		4D904665270DD74500DD41AE /* RxMemo */ = {
 			isa = PBXGroup;
 			children = (
+				4D90468F270DDB0300DD41AE /* Scene */,
+				4D90468E270DDAEF00DD41AE /* Service */,
+				4D90468D270DDADD00DD41AE /* ViewModel */,
+				4D90468C270DDACA00DD41AE /* ViewController */,
+				4D904689270DDA5D00DD41AE /* Model */,
 				4D904666270DD74500DD41AE /* AppDelegate.swift */,
 				4D904668270DD74500DD41AE /* SceneDelegate.swift */,
-				4D90466A270DD74500DD41AE /* ViewController.swift */,
-				4D90466C270DD74500DD41AE /* Main.storyboard */,
 				4D904672270DD74900DD41AE /* Assets.xcassets */,
-				4D904674270DD74900DD41AE /* LaunchScreen.storyboard */,
 				4D904677270DD74900DD41AE /* Info.plist */,
 				4D90466F270DD74500DD41AE /* RxMemo.xcdatamodeld */,
 			);
 			path = RxMemo;
+			sourceTree = "<group>";
+		};
+		4D904689270DDA5D00DD41AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4D90468C270DDACA00DD41AE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4D90466C270DD74500DD41AE /* Main.storyboard */,
+				4D904674270DD74900DD41AE /* LaunchScreen.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4D90468D270DDADD00DD41AE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4D90468E270DDAEF00DD41AE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4D90468F270DDB0300DD41AE /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		6BE57A34B11A304A57848DB1 /* Frameworks */ = {
@@ -209,7 +245,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D90466B270DD74500DD41AE /* ViewController.swift in Sources */,
 				4D904667270DD74500DD41AE /* AppDelegate.swift in Sources */,
 				4D904669270DD74500DD41AE /* SceneDelegate.swift in Sources */,
 				4D904671270DD74500DD41AE /* RxMemo.xcdatamodeld in Sources */,
