@@ -13,6 +13,7 @@
 		4D904671270DD74500DD41AE /* RxMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D90466F270DD74500DD41AE /* RxMemo.xcdatamodeld */; };
 		4D904673270DD74900DD41AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D904672270DD74900DD41AE /* Assets.xcassets */; };
 		4D904676270DD74900DD41AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D904674270DD74900DD41AE /* LaunchScreen.storyboard */; };
+		4D904692270DDFFB00DD41AE /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D904691270DDFFB00DD41AE /* Memo.swift */; };
 		B717B3C86621780FA1E894E1 /* Pods_RxMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E987F8DC74C40CF42B0EC772 /* Pods_RxMemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		4D904672270DD74900DD41AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D904675270DD74900DD41AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D904677270DD74900DD41AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D904691270DDFFB00DD41AE /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		9F02F1976D5A0DC910A6DAA0 /* Pods-RxMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMemo.release.xcconfig"; path = "Target Support Files/Pods-RxMemo/Pods-RxMemo.release.xcconfig"; sourceTree = "<group>"; };
 		E987F8DC74C40CF42B0EC772 /* Pods_RxMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 		4D904689270DDA5D00DD41AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D904691270DDFFB00DD41AE /* Memo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				4D904667270DD74500DD41AE /* AppDelegate.swift in Sources */,
 				4D904669270DD74500DD41AE /* SceneDelegate.swift in Sources */,
 				4D904671270DD74500DD41AE /* RxMemo.xcdatamodeld in Sources */,
+				4D904692270DDFFB00DD41AE /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
