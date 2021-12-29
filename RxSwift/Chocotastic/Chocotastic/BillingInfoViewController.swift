@@ -38,6 +38,8 @@ class BillingInfoViewController: UIViewController {
   @IBOutlet private var purchaseButton: UIButton!
   
   private let cardType: BehaviorRelay<CardType> = BehaviorRelay(value: .unknown)
+  private let disposeBag = DisposeBag()
+  private let throttleIntervalInMilliseconds = 100
 }
 
 // MARK: - View Lifecycle
@@ -45,6 +47,8 @@ extension BillingInfoViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "💳 Info"
+    setupCardImageDisplay()
+    setuptextChangeHandling()
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,6 +66,72 @@ extension BillingInfoViewController {
 
 //MARK: - RX Setup
 private extension BillingInfoViewController {
+  func setupCardImageDisplay() {
+    cardType
+      .asObservable()
+      .subscribe(onNext: { [unowned self] cardType in
+        self.creditCardImageView.image = cardType.image
+      })
+      .disposed(by: disposeBag)
+  }
+  
+  func setuptextChangeHandling() {
+    let creditCardValid = creditCardNumberTextField
+      .rx
+      .text // textField의 text Observable value로써 return.
+      .observeOn(MainScheduler.asyncInstance)
+      .distinctUntilChanged() // 바로 다음 값이 이전 값과 같을 때 중복을 막기 위해 사용됨
+      .throttle(.milliseconds(throttleIntervalInMilliseconds), scheduler: MainScheduler.instance)
+      .map({ [unowned self] in
+        self.validate(cardText: $0) // 유효한지 여부에 따라 true/false로 바꿔줌
+      })
+    
+    creditCardValid
+      .subscribe(onNext: { [unowned self] in
+        self.creditCardNumberTextField.valid = $0
+      })
+      .disposed(by: disposeBag)
+    
+    let expirationValid = expirationDateTextField
+      .rx
+      .text
+      .observeOn(MainScheduler.asyncInstance)
+      .distinctUntilChanged()
+      .throttle(.milliseconds(throttleIntervalInMilliseconds), scheduler: MainScheduler.instance)
+      .map { [unowned self] in
+        self.validate(expirationDateText: $0)
+      }
+    
+    expirationValid
+      .subscribe(onNext: { [unowned self] in
+        self.expirationDateTextField.valid = $0
+      })
+      .disposed(by: disposeBag)
+    
+    let cvValid = cvvTextField
+      .rx
+      .text
+      .observeOn(MainScheduler.asyncInstance)
+      .distinctUntilChanged()
+      .throttle(.milliseconds(throttleIntervalInMilliseconds), scheduler: MainScheduler.instance)
+      .map { [unowned self] in
+        self.validate(cvvText: $0)
+      }
+    
+    cvValid
+      .subscribe(onNext: { [unowned self] in
+        self.cvvTextField.valid = $0
+      })
+      .disposed(by: disposeBag)
+    
+    let everythingValid = Observable
+      .combineLatest(creditCardValid, expirationValid, cvValid) {
+        $0 && $1 && $2
+      }
+    
+    everythingValid.bind(to: purchaseButton.rx.isEnabled)
+      .disposed(by: disposeBag)
+  }
 }
 
 //MARK: - Validation methods
