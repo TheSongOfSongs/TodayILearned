@@ -37,8 +37,8 @@ class MemoryStorage: MemoStorageType {
         let updated = Memo(original: memo, updatedContent: content)
         
         if let index = sectionModel.items.firstIndex(where: { $0 == memo }) {
-            list.remove(at: index)
-            list.insert(updated, at: index)
+            sectionModel.items.remove(at: index)
+            sectionModel.items.insert(updated, at: index)
         }
         
         store.onNext([sectionModel])
@@ -48,7 +48,7 @@ class MemoryStorage: MemoStorageType {
     @discardableResult
     func delete(memo: Memo) -> Observable<Memo> {
         if let index = sectionModel.items.firstIndex(of: memo) {
-            list.remove(at: index)
+            sectionModel.items.remove(at: index)
         }
         
         store.onNext([sectionModel])
